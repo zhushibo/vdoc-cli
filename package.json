@@ -7,7 +7,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:init": "cross-env NODE_ENV=test && node ./src/bin/vdoc init"
   },
   "author": "doctor",
   "license": "ISC",
@@ -19,6 +20,7 @@
     "ora": "^4.0.5"
   },
   "devDependencies": {
+    "cross-env": "^7.0.2",
     "cz-conventional-changelog": "^3.2.0",
     "download-git-repo": "^3.0.2"
   },
