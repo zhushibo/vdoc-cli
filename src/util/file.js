@@ -10,6 +10,8 @@ let fs = require('fs');
 let http = require("https");
 let buf = new Buffer.alloc(10240);
 const { prompt } = require('inquirer')
+const { outputPath } = require('../config/config')
+const path = require('path')
 
 const chalk = require('chalk');
 
@@ -92,8 +94,9 @@ function mkdir(dir){
 /**
  * 重写package.json中的script部分
  */
-function reWritePackage(path = './package.json') {
-  fs.open(path, 'r+', function(err, fd){
+function reWritePackage() {
+  let writePath = path.resolve(`${outputPath}/package.json`)
+  fs.open(writePath, 'r+', function(err, fd){
     if (err) {
       return console.error(err);
     }
@@ -114,7 +117,7 @@ function reWritePackage(path = './package.json') {
          obj.scripts = userCommand
          let finalJson = JSON.stringify(obj, null, 2)
 
-         fs.writeFileSync(path, finalJson,  function(err) {
+         fs.writeFileSync(writePath, finalJson,  function(err) {
           if (err) {
               return console.error(err);
           }

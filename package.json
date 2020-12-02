@@ -8,7 +8,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "test:init": "cross-env NODE_ENV=test && node ./src/bin/vdoc init"
+    "test: init": "cross-env NODE_ENV=test && node ./src/bin/vdoc init",
+    "test: add": "cross-env NODE_ENV=test && node ./src/bin/vdoc add",
+    "test:config": "cross-env NODE_ENV=test && node ./src/bin/vdoc config"
   },
   "author": "doctor",
   "license": "ISC",

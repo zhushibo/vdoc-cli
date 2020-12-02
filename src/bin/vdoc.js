@@ -22,4 +22,13 @@ program
     require('../commands/add')
   })
 
+program
+  .version(package.version)
+  .command('config')
+  .description('config vue.config.js')
+  .alias('c')
+  .action(()=>{
+    require('../commands/config')
+  })
+
 program.parse(process.argv);
